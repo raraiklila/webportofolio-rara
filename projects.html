@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+    <title>Rara Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+</head>
+
+<body>
+<nav class="navbar">
+  <div class="container nav-container">
+    <a class="logo" href="#home">
+      <img src="assets/images/logo.png" alt="Rara Logo">
+    </a>
+
+    <!-- DESKTOP LINKS -->
+    <div class="nav-links">
+    <a href="index.html#home" class="link">Home</a>
+    <a href="index.html#about" class="link">About</a>
+    <a href="index.html#skills" class="link">Skills</a>
+    <a href="index.html#projects" class="link active">Projects</a>
+    <a href="index.html#experience" class="link">Experience</a>
+    <a href="index.html#contact" class="link contact-btn">Contact Me</a>
+    </div>
+
+
+    <i class="fa-solid fa-bars hamburg" id="hamburgBtn"></i>
+  </div>
+
+  <!-- DROPDOWN -->
+  <div class="dropdown" id="dropdown" aria-hidden="true">
+    <i class="fa-solid fa-xmark cancel" id="cancelBtn"></i>
+
+    <div class="dd-links">
+    <a href="index.html#home">Home</a>
+    <a href="index.html#about">About</a>
+    <a href="index.html#skills">Skills</a>
+    <a href="index.html#projects">Projects</a>
+    <a href="index.html#experience">Experience</a>
+    <a href="index.html#contact">Contact Me</a>
+    </div>
+
+  </div>
+</nav>
+
+<!-- PROJECTS SECTION -->
+<section class="all projects" id="all-projects">
+
+    <div class="all-projects-me" data-aos="fade-up" data-aos-delay="100">
+                <a href="index.html" class="back-btn">
+    ← Back to Projects
+    </a>
+        <!-- COMING SOON CONTENT -->
+    <div class="coming-page">
+      <img
+        src="assets/images/comingsoon-exp.png"
+        alt="Coming soon"
+        class="coming-img"
+      />
+
+      <h3 class="coming-title">Coming soon</h3>
+
+      <p class="coming-desc">
+        Details about my project and my work
+        will be available here soon.
+      </p>
+    </div>
+        </div>
+</section> 
+
+ <script src="script.js"></script>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>AOS.init({offset:0});</script>
+</body>
+
+</html>
+</body>
+
+</html>

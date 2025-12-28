@@ -176,7 +176,7 @@ padding: 70px 0;
 .main-container{
   width: min(1100px, 100%);   
   margin: 0 auto;
-  min-height: calc(100vh - 72px);
+  min-height: calc(100vh - 60px);
 
   display: flex;
   justify-content: space-between;
@@ -528,11 +528,11 @@ padding: 70px 0;
 .project-tabs{
   width: min(1100px, 100%);
   margin: 0 auto 32px;
-  padding: 6px;
+padding: 12px;  
   background: #f2f4f8;
   border-radius: 999px;
   display: flex;
-  gap: 6px;
+  gap: 10px;
   position: relative;
   z-index: 900;
   overflow: hidden; /* biar indicator nggak keluar */
@@ -540,7 +540,7 @@ padding: 70px 0;
 
 .project-tabs .tab{
   flex: 1;
-  padding: 10px 0;
+  padding: 12px;   
   border: none;
   border-radius: 999px;
   background: transparent;
@@ -559,9 +559,9 @@ padding: 70px 0;
 /* ===== SLIDING GLASS INDICATOR ===== */
 .tab-indicator{
   position: absolute;
-  top: 6px;
-  left: 6px;
-  height: calc(100% - 12px);
+    top: 12px;         /* samain sama padding */
+  left: 0px;
+  height: calc(100% - 24px);
   width: 0px;
   border-radius: 999px;
   z-index: 1;
@@ -762,6 +762,8 @@ padding: 70px 0;
   gap: 16px;
     transform: translateY(-60px); 
 }
+
+/* lanyardd */
  /* ====== MAIN HANGER (whole lanyard) ====== */
 .lanyard-wrap{
   width: min(360px, 92vw);
@@ -941,6 +943,8 @@ padding: 70px 0;
     box-shadow: 0 15px 35px rgba(0,0,0,.35);
     overflow:hidden;
     z-index: 12;
+      transform-style: preserve-3d;
+  backface-visibility: hidden;
 
     /* biar enak didrag */
     cursor: grab;
@@ -1413,3 +1417,25 @@ margin-top: 0;
   @media (prefers-reduced-motion: reduce){
     .lanyard-wrap{ transform:none !important; }
   }
+
+  #all-projects.section {
+  padding-top: 0;
+  }
+.back-btn{
+  display: inline-block;
+  margin-top: 5px;
+  margin-bottom: 2px;
+  font-weight: 500;
+  color: #3e6ff4;
+  text-decoration: none;
+  border: 2px solid #3e6ff4;
+  margin-left: 40px;
+  padding: 8px 18px;
+  border-radius: 999px;
+  transition: all .25s ease;
+}
+
+.back-btn:hover{
+  background: #3e6ff4;
+  color: white;
+}

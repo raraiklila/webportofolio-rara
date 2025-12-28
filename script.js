@@ -200,71 +200,82 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 //lanyard
-const wrap = document.getElementById("wrap");
-const card = document.getElementById("card");
+const wrap = document.getElementById("wrap"); // .lanyard-wrap
+const card = document.getElementById("card"); // .id-card
 
 let isDown = false;
 let pointerId = null;
 
-let baseAuto = 0;          // current auto angle
-let autoT = 0;             // time
-let manualTarget = 0;      // desired manual angle from drag
-let manual = 0;            // smoothed manual angle
-let cardExtra = 0;         // extra card tilt while dragging
+let autoT = 0;
+let baseAuto = 0;
+
+// manual swing
+let manualTarget = 0;
+let manual = 0;
+
+// card tilt + pull
 let cardExtraTarget = 0;
+let cardExtra = 0;
 
-let pullXTarget = 0;       // tiny translate
-let pullX = 0;
-let pullYTarget = 0;
-let pullY = 0;
+let pullXTarget = 0, pullX = 0;
+let pullYTarget = 0, pullY = 0;
 
-// ====== Auto swing (smooth sine) ======
+// NEW: flip (rotateY) + perspective 느낌
+let flipTarget = 0;
+let flip = 0;
+
+// NEW: momentum (biar release-nya enak)
+let vManual = 0;
+let vFlip = 0;
+
+function clamp(v, min, max){ return Math.max(min, Math.min(max, v)); }
+
 function animate(){
   autoT += 0.016;
+
+  // auto swing (idle)
   baseAuto = Math.sin(autoT * 1.1) * 2.2; // deg
 
-  // smooth manual and card extra
+  // smoothing
   manual += (manualTarget - manual) * 0.12;
   cardExtra += (cardExtraTarget - cardExtra) * 0.18;
-
   pullX += (pullXTarget - pullX) * 0.15;
   pullY += (pullYTarget - pullY) * 0.15;
+  flip += (flipTarget - flip) * 0.12;
 
   const wrapAngle = baseAuto + manual;
 
-  // apply to wrap
+  // lanyard goyang
   wrap.style.transform = `rotate(${wrapAngle}deg)`;
 
-  // apply to card (slightly more tilt + tiny pull translate)
-  // rotate a bit relative to wrap so it feels "hinge"
+  // card: translate + rotateZ kecil + rotateY (flip)
   card.style.transform =
-    `translateX(-50%) translate(${pullX}px, ${pullY}px) rotate(${(-2 + cardExtra)}deg)`;
+    `translateX(-50%) translate(${pullX}px, ${pullY}px)
+     perspective(900px)
+     rotateZ(${(-2 + cardExtra)}deg)
+     rotateY(${flip}deg)`;
 
   requestAnimationFrame(animate);
 }
 requestAnimationFrame(animate);
 
-// ====== Drag handling (mouse + touch unified) ======
-function getX(e){
-  return (e.touches && e.touches[0]) ? e.touches[0].clientX : e.clientX;
-}
-function getY(e){
-  return (e.touches && e.touches[0]) ? e.touches[0].clientY : e.clientY;
-}
+// ====== Drag handling ======
+function getX(e){ return (e.touches && e.touches[0]) ? e.touches[0].clientX : e.clientX; }
+function getY(e){ return (e.touches && e.touches[0]) ? e.touches[0].clientY : e.clientY; }
 
 let startX = 0, startY = 0;
 let startManual = 0;
+let startFlip = 0;
 
 function onDown(e){
-  // pointer events preferred
   isDown = true;
   card.style.cursor = "grabbing";
 
   startX = getX(e);
   startY = getY(e);
   startManual = manualTarget;
+  startFlip = flipTarget;
 
-  // capture pointer if available
   if (e.pointerId !== undefined){
     pointerId = e.pointerId;
     try { card.setPointerCapture(pointerId); } catch(_){}
@@ -277,19 +288,22 @@ function onMove(e){
   const dx = getX(e) - startX;
   const dy = getY(e) - startY;
 
-  // map drag -> angle (deg)
-  // drag 100px -> about 4deg
+  // drag kiri kanan -> swing
   manualTarget = startManual + (dx / 100) * 4.0;
+  manualTarget = clamp(manualTarget, -10, 10);
 
-  // clamp to avoid crazy
-  manualTarget = Math.max(-8, Math.min(8, manualTarget));
+  // tilt kartu
+  cardExtraTarget = clamp((dx / 140) * 5, -10, 10);
 
-  // card extra tilt & small pull
-  cardExtraTarget = (dx / 140) * 5;   // deg
-  cardExtraTarget = Math.max(-8, Math.min(8, cardExtraTarget));
+  // pull kecil
+  pullXTarget = clamp(dx / 10, -18, 18);
+  pullYTarget = clamp(dy / 14, -14, 14);
 
-  pullXTarget = Math.max(-14, Math.min(14, dx / 10));
-  pullYTarget = Math.max(-10, Math.min(10, dy / 14));
+  // NEW: drag vertical -> flip (dibalik)
+  // dy turun = flip ke depan, dy naik = balik
+  flipTarget = startFlip + clamp((dy / 6), -25, 25);
+
+  // optional: kalau kamu mau flip lebih kuat, ganti /6 jadi /4
 }
 
 function onUp(){
@@ -297,25 +311,29 @@ function onUp(){
   isDown = false;
   card.style.cursor = "grab";
 
-  // when released, ease back to 0 manual (auto continues)
+  // balik pelan ke netral
   manualTarget = 0;
   cardExtraTarget = 0;
   pullXTarget = 0;
   pullYTarget = 0;
 
+  // flip balik ke 0 (atau kalau mau "snap" ke 0 lebih cepat, naikkan smoothing flip)
+  flipTarget = 0;
+
   pointerId = null;
 }
 
-// Pointer events (best)
+// Pointer events
 card.addEventListener("pointerdown", onDown);
 window.addEventListener("pointermove", onMove);
 window.addEventListener("pointerup", onUp);
 
-// Fallback touch (if needed)
+// Touch fallback
 card.addEventListener("touchstart", (e)=>onDown(e), {passive:true});
 window.addEventListener("touchmove", (e)=>onMove(e), {passive:true});
 window.addEventListener("touchend", onUp);
-// Fallback mouse (if needed)
+
+// Mouse fallback
 card.addEventListener("mousedown", onDown);
 window.addEventListener("mousemove", onMove);
 window.addEventListener("mouseup", onUp);
