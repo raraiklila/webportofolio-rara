@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+    <title>Rara Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+</head>
+
+<body>
+    <!-- COMING SOON POPUP -->
+    <div class="comingsoon-overlay" id="comingSoon">
+        <div class="comingsoon-box" data-aos="zoom-in">
+            
+            <!-- FOTO -->
+            <img
+            src="assets/images/nailong.png"
+            alt="Coming Soon"
+            class="comingsoon-img"
+            />
+
+            <h3>🚧 Coming Soon 🚧</h3>
+            <p>GitHub projects are currently on the way and will be available soon. Stay tuned!</p>
+
+            <button onclick="closeComingSoon()">Okay</button>
+        </div>
+    </div>
+<nav class="navbar">
+  <div class="container nav-container">
+    <a class="logo" href="#home">
+      <img src="assets/images/logo.png" alt="Rara Logo">
+    </a>
+
+    <!-- DESKTOP LINKS -->
+    <div class="nav-links">
+      <a href="#home" class="link">Home</a>
+      <a href="#about" class="link">About</a>
+      <a href="#skills" class="link">Skills</a>
+      <a href="#projects" class="link">Projects</a>
+      <a href="#experience" class="link">Experience</a>
+      <a href="#contact" class="link contact-btn">Contact Me</a>
+    </div>
+
+    <i class="fa-solid fa-bars hamburg" id="hamburgBtn"></i>
+  </div>
+
+  <!-- DROPDOWN -->
+  <div class="dropdown" id="dropdown" aria-hidden="true">
+    <i class="fa-solid fa-xmark cancel" id="cancelBtn"></i>
+
+    <div class="dd-links">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact Me</a>
+    </div>
+  </div>
+</nav>
+
+
+
+  <!-- HERO -->
+<section id="home"> 
+  <div class="main-container">
+    <div class="content">
+      <h1
+        data-aos="fade-right"
+        data-aos-duration="1500"
+        data-aos-delay="600"
+      >
+        Hi, I'm <span>Rara!</span>
+      </h1>
+
+      <div
+        class="typewriter"
+        data-aos="fade-left"
+        data-aos-duration="1500"
+        data-aos-delay="800"
+      >
+        I'm a <span class="typewriter-text"></span><label for="">|</label>
+      </div>
+
+      <div class="social-links">
+        <a
+            href="https://www.linkedin.com/in/firaiklila/"
+            target="_blank"
+            rel="noopener"
+        >
+            <i
+            class="fa-brands fa-linkedin"
+            data-aos="fade-up"
+            data-aos-duration="1500"
+            data-aos-delay="1200"
+            ></i>
+        </a>
+
+        <a
+            href="https://www.instagram.com/firaiklila/"
+            target="_blank"
+            rel="noopener"
+        >
+            <i
+            class="fa-brands fa-instagram"
+            data-aos="fade-up"
+            data-aos-duration="1500"
+            data-aos-delay="1500"
+            ></i>
+        </a>
+
+        <!-- GITHUB (COMING SOON) -->
+        <a href="javascript:void(0)" onclick="openComingSoon()">
+            <i
+            class="fa-brands fa-github"
+            data-aos="fade-up"
+            data-aos-duration="1500"
+            data-aos-delay="1300"
+            ></i>
+        </a>
+        </div>
+
+        <a
+        href="https://drive.google.com/drive/folders/11IOxfliZhEZfSNGbRT9RrfYxapKIPhc6?usp=sharing"
+        target="_blank"
+        rel="noopener noreferrer"
+        >
+        <button
+            data-aos="zoom-in"
+            data-aos-duration="1500"
+            data-aos-delay="1700"
+        >
+            My Resume
+        </button>
+        </a>
+
+    </div>
+
+    <div
+      class="image"
+      data-aos="zoom-in"
+      data-aos-duration="2000"
+    >
+      <img src="assets/images/main.jpg" alt="Main Image">
+    </div>
+  </div>
+</section>
+
+  <!-- ABOUT -->
+    <section id="about" class="about-section">
+        <div class="about-wrapper">
+            
+            <div class="about-container">
+
+                <div class="about-left">
+                    <h2 class="about-title"><b>About Me</b><span class="dot">.</span></h2>
+                    
+                    <div class="about-photo-wrap">
+                        <img src="assets/images/me.png" alt="Rara" class="about-photo">
+                    </div>
+                </div>
+
+                <div class="about-right">
+
+                    <div class="about-heading">
+                        <h3 class="about-name">Fira Zaha Iklila</h3>
+                        <span class="about-pronounce"><b>/rara/</b></span>
+                    </div>
+
+                    <p class="about-desc">
+                        I am an Informatics Engineering student at Brawijaya University with strong adaptability,
+                        allowing me to build connections with anyone. Enjoy <b>video editing</b>,
+                        <b>graphic design</b>, and <b>managing social media</b> as part of my interests and talents. 
+                        Currently, exploring the world of <b>UI/UX design and front-end development</b>, with great 
+                        enthusiasm for creating engaging interfaces and delivering optimal user experiences.
+                    </p>
+
+                </div>
+            </div>
+        
+        </div>
+    </section>
+
+  <!-- SKILLS (ICON GRID) -->
+  <section id="skills" class="section skills-section">
+    <div class="skill-container">
+      <div class="section-head">
+        <h2 class="section-title">Skills<span class="dot">.</span></h2>
+        <p class="section-subtext">Languages, tools, and technologies I’m comfortable with.</p>
+      </div>
+
+      <div class="skills-grid">
+
+        <div class="skill-card">
+          <img src="assets/icons/html5.svg" alt="HTML" />
+          <p>HTML</p>
+        </div>
+        <div class="skill-card">
+          <img src="assets/icons/css.svg" alt="CSS" />
+          <p>CSS</p>
+        </div>
+        <div class="skill-card">
+          <img src="assets/icons/js.svg" alt="JavaScript" />
+          <p>JavaScript</p>
+        </div>
+        <div class="skill-card">
+          <img src="assets/icons/figma.svg" alt="Figma" />
+          <p>Figma</p>
+        </div>
+        <div class="skill-card">
+          <img src="assets/icons/java.png" alt="Java" />
+          <p>Java</p>
+        </div>
+        <div class="skill-card">
+          <img src="assets/icons/python.png" alt="Python" />
+          <p>Python</p>
+        </div>
+        <div class="skill-card">
+          <img src="assets/icons/github.svg" alt="GitHub" />
+          <p>GitHub</p>
+        </div>
+        <div class="skill-card">
+          <img src="assets/icons/git.svg" alt="Git" />
+          <p>Git</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="section projects-section">
+    <div class="container">
+        <div class="section-head">
+        <h2 class="section-title">Projects<span class="dot">.</span></h2>
+        <p class="section-subtext">Some of my favorite work, combining design and functionality.</p>
+        </div>
+
+        <!-- TABS (segmented control) -->
+        <div class="project-tabs" id="projectTabs">
+  <div class="tab-indicator" id="tabIndicator" aria-hidden="true"></div>
+
+        <button class="tab active" data-tab="softdev">Software Dev</button>
+        <button class="tab" data-tab="creative">Creative Media</button>
+        <button class="tab" data-tab="smm">Social Media</button>
+        </div>
+
+        <!-- ====== SOFTDEV (DEFAULT) ====== -->
+        <div class="projects-carousel-container">
+        <div class="projects-carousel" id="carousel-softdev">
+        <article class="project-card">
+            <img src="assets/images/app1.png" alt="Calmora" />
+            <div class="project-info">
+            <h3>Calmora</h3>
+            <p>Calmora is an AI-powered mental health application that helps users understand and maintain their emotional well-being. Its goal is to make users more aware of their feelings and guide them toward small, meaningful steps that help them feel better.</p>
+            <div class="tags">
+                <span>#UI/UX</span><span>#SDGs 3</span><span>#SDGs 11</span>
+            </div>
+            </div>
+        </article>
+
+        <article class="project-card">
+            <img src="assets/images/app2.png" alt="Mbolang" />
+            <div class="project-info">
+            <h3>Mbolang</h3>
+            <p>Mbolang is a digital travel platform that helps you explore Malang easily and enjoyably. From mountains and beaches to waterfalls (coban), we bring together popular destinations and hidden local gems to make every journey memorable.</p>
+            <div class="tags">
+                <span>#HTML</span><span>#JavaScript</span><span>#PHP</span>
+            </div>
+            </div>
+        </article>
+
+        <article class="project-card">
+            <img src="assets/images/app3.png" alt="SajiGo" />
+            <div class="project-info">
+            <h3>SajiGo</h3>
+            <p>SajiGo is an app that connects culinary MSMEs (Micro, Small, and Medium Enterprises) with the community, especially in Malang City, to sell surplus food products that are still safe and suitable for consumption at more affordable prices.</p>
+            <div class="tags">
+                <span>#UI/UX</span><span>#Kotlin</span><span>#SDGs 12</span>
+            </div>
+            <div class="project-links">
+                <a href="https://bit.ly/PrototypeSajigo" target="_blank" rel="noopener">Prototype</a>
+            </div>
+            </div>
+        </article>
+
+        <article class="project-card">
+            <img src="assets/images/app1.png" alt="Aksara" />
+            <div class="project-info">
+            <h3>Aksara</h3>
+            <p>Aksara is a digital educational application designed to improve literacy and reading interest among students in Indonesia by providing free and accessible reading materials for elementary to senior high school students across the country.</p>
+            <div class="tags">
+                <span>#UI/UX</span><span>#Flutter</span><span>#SDGs 4</span>
+            </div>
+            <div class="project-links">
+                <a href=": clips.id/PrototypeAksara" target="_blank" rel="noopener">Prototype</a>
+            </div>
+            </div>
+        </article>
+
+        <article class="project-card">
+            <img src="assets/images/app3.png" alt="Cerebellum" />
+            <div class="project-info">
+            <h3>Cerebellum</h3>
+            <p>Cerebellum is a web- and mobile-based application designed to help high school and vocational students prepare for post-graduation pathways by bridging the gap between formal education and industry needs.</p>
+            <div class="tags">
+                <span>#UI/UX</span><span>#SDGs 4</span><span>#SDGs 8</span>
+            </div>
+            </div>
+        </article>
+        </div>
+            <div class="view-all" id="viewAllBtn">
+            <a href="projects.html">
+                <button class="primary-btn">
+                View All Projects
+                </button>
+            </a>
+            </div>
+
+        </div>
+
+        <!-- ====== CREATIVE MEDIA ====== -->
+        <div class="projects-carousel hidden" id="carousel-creative">
+        <!-- isi nanti: video editing / graphic design / posters / motion -->
+        <article class="project-card">
+            <img src="assets/images/creative-placeholder.png" alt="Creative Media" />
+            <div class="project-info">
+            <h3>Creative Media (Coming Soon)</h3>
+            <p>Selected works in video editing, graphic design, and visual storytelling will be added here.</p>
+            <div class="tags">
+                <span>#Design</span><span>#Video</span><span>#Branding</span>
+            </div>
+            </div>
+        </article>
+        </div>
+
+        <!-- ====== SOCIAL MEDIA MANAGER ====== -->
+        <div class="projects-carousel hidden" id="carousel-smm">
+        <!-- isi nanti: campaign / content plan / analytics -->
+        <article class="project-card">
+            <img src="assets/images/smm-placeholder.png" alt="Social Media" />
+            <div class="project-info">
+            <h3>Social Media (Coming Soon)</h3>
+            <p>Social media campaigns, content planning, and growth highlights will be added here.</p>
+            <div class="tags">
+                <span>#Content</span><span>#Strategy</span><span>#Analytics</span>
+            </div>
+            </div>
+        </article>
+        </div>
+
+
+    </div>
+    </section>
+    <!-- EXPERIENCE -->
+
+<section id="experience" class="section">
+  <div class="container">
+
+    <div class="section-head">
+      <h2 class="section-title">Experience<span class="dot">.</span></h2>
+      <p class="section-subtext">
+        A glimpse of my organizational involvement, internships, and hands-on experiences.
+      </p>
+    </div>
+
+    <!-- COMING SOON CONTENT -->
+    <div class="coming-page">
+      <img
+        src="assets/images/comingsoon-exp.png"
+        alt="Coming soon"
+        class="coming-img"
+      />
+
+      <h3 class="coming-title">Coming soon</h3>
+
+      <p class="coming-desc">
+        Details about my experiences, roles, and responsibilities
+        will be available here soon.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+
+<section id="contact" class="section contact-section">
+  <div class="container contact-container">
+
+    <!-- LEFT INFO -->
+    <div class="contact-left">
+      <!-- <span class="contact-label">Contact Us</span> -->
+
+<div class="lanyard-wrap" id="wrap">
+  <div class="buckle">
+    <div class="top-slot"></div>
+    <div class="body"></div>
+    <div class="hole"></div>
+  </div>
+
+  <div class="strap">
+    <div class="strap-text">RARA</div>
+  </div>
+
+  <div class="ring"></div>
+  <div class="clip">
+    <div class="metal"></div>
+    <div class="jaw"></div>
+  </div>
+
+  <!-- CARD -->
+  <div class="id-card" id="card" aria-label="ID Card">
+    <div class="id-hole"></div>
+
+    <div class="id-inner">
+      <div class="photo">
+        <!-- GANTI FOTO KAMU DI SINI -->
+        <img src="assets/images/card.jpeg" alt="Your photo" />
+      </div>
+
+      <div class="meta">
+        <div class="name">Fira Zaha Iklila</div>
+        <div class="title">UI/UX Designer • Front-End Developer</div>
+
+      </div>
+    </div>
+  </div>
+</div>
+    </div>
+
+    
+    <!-- RIGHT FORM (GLASS) -->
+    <div class="contact-info">
+           <h2 class="contact-title">
+        Let’s Create <span>Something Meaningful 👀</span>
+      </h2>
+
+      <p class="contact-desc">
+        Feel free to reach out if you want to collaborate, 
+        discuss ideas, or simply say hello.
+      </p>
+
+    <div class="contact-right">
+      <form
+        class="contact-form"
+        action="mailto:fira.ndul146@gmail.com"
+        method="post"
+        enctype="text/plain"
+        >
+
+        <div class="field">
+        <label>Your Name *</label>
+        <input type="text" name="name" placeholder="Ex. Rara" required>
+        </div>
+
+        <div class="field">
+        <label>Email *</label>
+        <input type="email" name="email" placeholder="example@gmail.com" required>
+        </div>
+
+        <div class="field">
+        <label>Phone *</label>
+        <input type="tel" name="phone" placeholder="Enter phone number" required>
+        </div>
+
+        <div class="field">
+        <label>I’m Interested *</label>
+        <select name="interest" required>
+            <option value="">Select</option>
+            <option value="UI/UX">UI/UX Design</option>
+            <option value="Frontend">Frontend Development</option>
+            <option value="Social Media">Social Media</option>
+        </select>
+        </div>
+
+        <div class="field">
+        <label>Your Message *</label>
+        <textarea name="message" placeholder="Enter here..." required></textarea>
+        </div>
+
+
+        <button type="submit" class="submit-btn">
+          Submit <span>+</span>
+        </button>
+
+      </form>
+    </div>
+
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-glass">
+    Made with <b>Ice Taro</b> + <b>Jasuke</b>. © 2025 Fira Zaha Iklila
+  </div>
+</footer>
+
+
+  <script src="script.js"></script>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>AOS.init({offset:0});</script>
+</body>
+
+</html>
